@@ -160,7 +160,7 @@ void Manager::LoadScriptsForStaticPlugins()
 	{
 	for ( const auto& p : Manager::ActivePlugins() )
 		{
-		if ( p->DynamicPlugin() || p->Name() == "" )
+		if ( p->DynamicPlugin() || p->Name().empty() )
 			continue;
 
 		string canon = std::regex_replace(p->Name(), std::regex("::"), "_");
