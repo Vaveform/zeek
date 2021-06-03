@@ -156,32 +156,6 @@ void Manager::SearchDynamicPlugins(const std::string& dir)
 	closedir(d);
 	}
 
-void Manager::LoadScriptsForStaticPlugins()
-	{
-	for ( const auto& p : Manager::ActivePlugins() )
-		{
-		if ( p->DynamicPlugin() || p->Name().empty() )
-			continue;
-
-		string canon = std::regex_replace(p->Name(), std::regex("::"), "_");
-		string dir = "plugins/" + canon + "/";
-		// Use find_file to find the directory in the path.
-		string script_dir = util::find_file(dir, util::zeek_path());
-		if ( ! util::is_dir(script_dir) )
-			continue;
-
-		DBG_LOG(DBG_PLUGINS, "  Adding %s to ZEEKPATH", script_dir.c_str());
-		util::detail::add_to_zeek_path(script_dir);
-
-		string load_file = util::find_file(dir + "__load__", util::zeek_path(), ".zeek");
-		if ( util::is_file(load_file) )
-			{
-			DBG_LOG(DBG_PLUGINS, "  Loading %s", load_file.c_str());
-			add_input_file(load_file.c_str());
-			}
-		}
-	}
-
 bool Manager::ActivateDynamicPluginInternal(const std::string& name, bool ok_if_not_found, std::vector<std::string>* errors)
 	{
 	errors->clear(); // caller should pass it in empty, but just to be sure

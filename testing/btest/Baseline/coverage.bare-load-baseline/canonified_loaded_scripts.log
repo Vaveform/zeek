@@ -110,6 +110,7 @@ scripts/base/init-frameworks-and-bifs.zeek
     build/scripts/base/bif/bloom-filter.bif.zeek
     build/scripts/base/bif/cardinality-counter.bif.zeek
     build/scripts/base/bif/top-k.bif.zeek
+  build/scripts/plugins/__preload__.zeek
   build/scripts/base/bif/plugins/__load__.zeek
     build/scripts/base/bif/plugins/Zeek_BitTorrent.events.bif.zeek
     build/scripts/base/bif/plugins/Zeek_ConnSize.events.bif.zeek
@@ -231,6 +232,7 @@ scripts/base/init-frameworks-and-bifs.zeek
     build/scripts/base/bif/plugins/Zeek_AsciiWriter.ascii.bif.zeek
     build/scripts/base/bif/plugins/Zeek_NoneWriter.none.bif.zeek
     build/scripts/base/bif/plugins/Zeek_SQLiteWriter.sqlite.bif.zeek
+build/scripts/plugins/__load__.zeek
 scripts/policy/misc/loaded-scripts.zeek
   scripts/base/utils/paths.zeek
 #close XXXX-XX-XX-XX-XX-XX

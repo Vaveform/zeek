@@ -12,7 +12,7 @@
 
 @load base/bif
 
-# Load the "preload" scripts for all internal plugins.
+# Load the "preload" scripts for all external statically-built plugins.
 @load plugins/__preload__
 # Load BiFs defined by plugins.
 @load base/bif/plugins
