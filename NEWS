@@ -60,6 +60,10 @@ New Functionality
   Connection objects were handled previously, but without the need to be based
   on IP-based protocols.
 
+- Added a ``--include-plugins`` argument to ``configure``. This argument
+  takes a semicolon separated list of paths containing plugins that will be
+  statically built into Zeek.
+
 Changed Functionality
 ---------------------
 
