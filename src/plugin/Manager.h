@@ -410,6 +410,11 @@ public:
 	 */
 	static void RegisterBifFile(const char* plugin, bif_init_func c);
 
+	/**
+	 *
+	 */
+	void ExtendZeekPathForPlugins();
+
 private:
 	bool ActivateDynamicPluginInternal(const std::string& name, bool ok_if_not_found, std::vector<std::string>* errors);
 	void UpdateInputFiles();

@@ -404,6 +404,25 @@ void Manager::RegisterBifFile(const char* plugin, bif_init_func c)
 	i->second->push_back(c);
 	}
 
+void Manager::ExtendZeekPathForPlugins()
+	{
+	for ( const auto& p : Manager::ActivePlugins() )
+		{
+		if ( p->DynamicPlugin() || p->Name().empty() )
+			continue;
+
+		string canon = std::regex_replace(p->Name(), std::regex("::"), "_");
+		string dir = "plugins/" + canon + "/";
+		// Use find_file to find the directory in the path.
+		string script_dir = util::find_file(dir, util::zeek_path());
+		if ( ! util::is_dir(script_dir) )
+			continue;
+
+		DBG_LOG(DBG_PLUGINS, "  Adding %s to ZEEKPATH", script_dir.c_str());
+		util::detail::add_to_zeek_path(script_dir);
+		}
+	}
+
 void Manager::InitPreScript()
 	{
 	assert(! init);
