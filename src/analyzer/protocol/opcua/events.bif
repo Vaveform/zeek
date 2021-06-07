@@ -1,0 +1,1 @@
+event opcua_event%(c: connection, is_orig: bool, message_type: count, message_size: count%);
