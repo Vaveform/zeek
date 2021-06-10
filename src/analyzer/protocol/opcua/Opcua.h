@@ -18,7 +18,7 @@ public:
 
     static analyzer::Analyzer* Instantiate(Connection* conn)
         {
-        fprintf(stdout, "Inside Instantiate facotry method before calling new Opcua_Analyzer");
+        //fprintf(stdout, "Inside Instantiate facotry method before calling new Opcua_Analyzer");
         return new Opcua_Analyzer(conn);
         }
 protected:

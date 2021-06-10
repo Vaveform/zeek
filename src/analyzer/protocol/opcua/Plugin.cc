@@ -8,10 +8,10 @@ class Plugin : public zeek::plugin::Plugin {
 public:
     zeek::plugin::Configuration Configure() override
         {
-        fprintf(stdout, "Call registration component Opcua\n");
+        //fprintf(stdout, "Call registration component Opcua\n");
         zeek::plugin::Component *c = new zeek::analyzer::Component("Opcua", zeek::analyzer::opcua::Opcua_Analyzer::Instantiate);
         AddComponent(c);
-        fprintf(stdout, "Componet Opcua registration ended\n");
+        //fprintf(stdout, "Componet Opcua registration ended\n");
         zeek::plugin::Configuration config;
         config.name = "Zeek::Opcua";
         config.description = "Opcua analyzer";

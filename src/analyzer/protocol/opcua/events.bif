@@ -1,1 +1,7 @@
 event opcua_event%(c: connection, is_orig: bool, message_type: count, message_size: count%);
+
+
+event opcua_request%(c: connection, message_type: count, message_size: count%);
+
+
+event opcua_response%(c: connection, message_type: count, message_size: count%);
