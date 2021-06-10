@@ -20,6 +20,7 @@ namespace zeek::analyzer::ftp {
 FTP_Analyzer::FTP_Analyzer(Connection* conn)
 : analyzer::tcp::TCP_ApplicationAnalyzer("FTP", conn)
 	{
+	fprintf(stdout, "Calling FTP analyzer constructor\n");
 	pending_reply = 0;
 
 	nvt_orig = new analyzer::login::NVT_Analyzer(conn, true);
@@ -62,6 +63,7 @@ static uint32_t get_reply_code(int len, const char* line)
 
 void FTP_Analyzer::DeliverStream(int length, const u_char* data, bool orig)
 	{
+	fprintf(stdout, "Calling FTP DeliverStream method\n");
 	analyzer::tcp::TCP_ApplicationAnalyzer::DeliverStream(length, data, orig);
 
 	if ( (orig && ! ftp_request) || (! orig && ! ftp_reply) )

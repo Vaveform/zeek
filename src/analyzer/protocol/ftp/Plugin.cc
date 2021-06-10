@@ -10,9 +10,10 @@ class Plugin : public zeek::plugin::Plugin {
 public:
 	zeek::plugin::Configuration Configure() override
 		{
+		fprintf(stdout, "Call registration component FTP\n");
 		AddComponent(new zeek::analyzer::Component("FTP", zeek::analyzer::ftp::FTP_Analyzer::Instantiate));
 		AddComponent(new zeek::analyzer::Component("FTP_ADAT", nullptr));
-
+		fprintf(stdout, "Componet FTP registration ended\n");
 		zeek::plugin::Configuration config;
 		config.name = "Zeek::FTP";
 		config.description = "FTP analyzer";
