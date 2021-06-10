@@ -75,7 +75,7 @@ void Opcua_Analyzer::DeliverStream(int length, const u_char* data, bool orig)
     uint32_t message_size = 0;
     uint32_t buffer_value = 0;
     for(int i = 0; current_position < 8; current_position++, i++){
-        fprintf(stdout, "Parsed byte in stream(hex): %x and in decimal: %d\n", line[current_position] & 0xff, line[current_position]);
+        //fprintf(stdout, "Parsed byte in stream(hex): %x and in decimal: %d\n", line[current_position] & 0xff, line[current_position]);
         buffer_value = line[current_position];
         buffer_value = buffer_value << (8 * i);
         message_size = message_size | buffer_value;
